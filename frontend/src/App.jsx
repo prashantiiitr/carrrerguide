@@ -6,6 +6,7 @@ import SkillsPage from "./pages/SkillsPage.jsx";
 import GoalsPage from "./pages/GoalsPage.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/profile" element={<RequireAuth><ProfilePage /></RequireAuth>} />
         <Route path="/skills"  element={<RequireAuth><SkillsPage /></RequireAuth>} />
         <Route path="/goals"   element={<RequireAuth><GoalsPage /></RequireAuth>} />
+        <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
       </Route>
     </Routes>
   );

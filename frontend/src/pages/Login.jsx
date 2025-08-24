@@ -16,6 +16,7 @@ export default function Login() {
     try {
       const { data } = await API.post("/auth/login", form);
       localStorage.setItem("token", data.token);
+      window.dispatchEvent(new Event("auth-changed"));
       toast.success("Welcome back!");
       nav(loc.state?.from?.pathname || "/profile", { replace: true });
     } catch (err) {
