@@ -5,17 +5,19 @@ import authRoutes from "./routes/authRoutes.js";
 import skillRoutes from "./routes/skillRoutes.js";
 import goalRoutes from "./routes/goalRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
+import cors from "cors";
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use("/api/auth", authRoutes);
 
-app.use("/api/skills", skillRoutes);
-
-app.use("/api/goals", goalRoutes);
 app.use("/api/profiles", profileRoutes);
+app.use("/api/skills", skillRoutes);
+app.use("/api/goals", goalRoutes);
+
 
 const PORT = process.env.PORT || 3000;
 
